@@ -15,6 +15,8 @@
 		2B68CA2F1BBC4C68004A5E9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B68CA2D1BBC4C68004A5E9E /* LaunchScreen.storyboard */; };
 		2B68CA3A1BBC4C68004A5E9E /* Rac4PlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68CA391BBC4C68004A5E9E /* Rac4PlaygroundTests.swift */; };
 		2B68CA451BBC4C68004A5E9E /* Rac4PlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B68CA441BBC4C68004A5E9E /* Rac4PlaygroundUITests.swift */; };
+		2B68CA541BBC5E58004A5E9E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B68CA521BBC5E58004A5E9E /* ReactiveCocoa.framework */; };
+		2B68CA551BBC5E58004A5E9E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B68CA531BBC5E58004A5E9E /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2B68CA401BBC4C68004A5E9E /* Rac4PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rac4PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B68CA441BBC4C68004A5E9E /* Rac4PlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rac4PlaygroundUITests.swift; sourceTree = "<group>"; };
 		2B68CA461BBC4C68004A5E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B68CA521BBC5E58004A5E9E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		2B68CA531BBC5E58004A5E9E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B68CA541BBC5E58004A5E9E /* ReactiveCocoa.framework in Frameworks */,
+				2B68CA551BBC5E58004A5E9E /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 				2B68CA381BBC4C68004A5E9E /* Rac4PlaygroundTests */,
 				2B68CA431BBC4C68004A5E9E /* Rac4PlaygroundUITests */,
 				2B68CA201BBC4C68004A5E9E /* Products */,
+				2B68CA571BBC5EA0004A5E9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,15 @@
 			path = Rac4PlaygroundUITests;
 			sourceTree = "<group>";
 		};
+		2B68CA571BBC5EA0004A5E9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B68CA521BBC5E58004A5E9E /* ReactiveCocoa.framework */,
+				2B68CA531BBC5E58004A5E9E /* Result.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +154,7 @@
 				2B68CA1B1BBC4C68004A5E9E /* Sources */,
 				2B68CA1C1BBC4C68004A5E9E /* Frameworks */,
 				2B68CA1D1BBC4C68004A5E9E /* Resources */,
+				2B68CA561BBC5E68004A5E9E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -252,6 +269,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B68CA561BBC5E68004A5E9E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B68CA1B1BBC4C68004A5E9E /* Sources */ = {
@@ -402,6 +437,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Rac4Playground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zuno.Rac4Playground;
@@ -413,6 +452,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Rac4Playground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zuno.Rac4Playground;
